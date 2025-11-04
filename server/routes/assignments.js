@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const assignmentController = require('../controllers/assignmentController');
 const { authenticate, authorize, checkClassMembership } = require('../middleware/auth');
-const upload = require('../middleware/upload');
+const { upload } = require('../middleware/upload');
 const { validateCreateAssignment, handleValidationErrors, validatePagination } = require('../middleware/validate');
 
 // Create assignment with file uploads

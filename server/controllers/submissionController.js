@@ -1,5 +1,6 @@
 const Submission = require('../models/Submission');
 const Assignment = require('../models/Assignment');
+const cloudinary = require('../config/cloudinary');
 
 // @route   POST /api/assignments/:assignmentId/submissions
 // @desc    Create/update submission
