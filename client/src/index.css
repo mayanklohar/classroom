@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-dark-200;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-body text-dark-900 bg-dark-50;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    min-height: 100vh;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-100;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+}
+
+@layer components {
+  /* Cyberpunk Button Styles */
+  .btn-cyber {
+    @apply relative px-8 py-4 font-display font-bold text-sm uppercase tracking-wider;
+    @apply bg-transparent border-2 border-primary-500 text-primary-400;
+    @apply transition-all duration-300 transform hover:scale-105;
+    @apply shadow-neon-sm hover:shadow-neon;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 100%, 20px 100%);
+    background: linear-gradient(45deg, transparent 30%, rgba(99, 102, 241, 0.1) 50%, transparent 70%);
+  }
+
+  .btn-cyber:hover {
+    @apply text-white bg-primary-500/20 shadow-neon;
+    animation: cyber-glow 0.3s ease-in-out;
+  }
+
+  .btn-cyber-secondary {
+    @apply btn-cyber border-secondary-500 text-secondary-400;
+    @apply hover:text-white hover:bg-secondary-500/20;
+  }
+
+  .btn-cyber-accent {
+    @apply btn-cyber border-accent-500 text-accent-400;
+    @apply hover:text-white hover:bg-accent-500/20;
+  }
+
+  /* Neon Card Styles */
+  .card-neon {
+    @apply relative p-8 bg-dark-100/50 backdrop-blur-xl;
+    @apply border border-primary-500/30 rounded-none;
+    @apply shadow-cyber transition-all duration-500;
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(236, 72, 153, 0.05) 100%);
+  }
+
+  .card-neon:hover {
+    @apply border-primary-400/50 shadow-neon-sm transform scale-[1.02];
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  }
+
+  .card-brutal {
+    @apply bg-white border-4 border-black p-6 shadow-brutal text-black;
+    @apply hover:shadow-brutal-sm hover:translate-x-1 hover:translate-y-1;
+    @apply transition-all duration-200;
+  }
+
+  /* Holographic Input Fields */
+  .input-holo {
+    @apply w-full px-6 py-4 bg-dark-100/30 backdrop-blur-md;
+    @apply border border-primary-500/50 text-black placeholder-dark-400;
+    @apply focus:outline-none focus:border-primary-400 focus:shadow-neon-sm;
+    @apply transition-all duration-300 font-mono;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.05) 0%, transparent 50%, rgba(236, 72, 153, 0.05) 100%);
+  }
+
+  /* Global input text color override */
+  input[type="text"],
+  input[type="email"], 
+  input[type="password"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="date"],
+  input[type="time"],
+  input[type="datetime-local"],
+  textarea,
+  select {
+    color: #000000 !important;
+  }
+
+  /* Global text color rules for white backgrounds */
+  .bg-white,
+  .bg-white *,
+  [class*="bg-white"],
+  [class*="bg-white"] * {
+    color: #000000 !important;
+  }
+
+  /* Specific overrides for common white background classes */
+  .bg-gray-50,
+  .bg-gray-50 *,
+  .bg-neutral-50,
+  .bg-neutral-50 *,
+  .bg-slate-50,
+  .bg-slate-50 *,
+  .bg-stone-50,
+  .bg-stone-50 *,
+  .bg-zinc-50,
+  .bg-zinc-50 * {
+    color: #000000 !important;
+  }
+
+  /* Card and container overrides */
+  .card-brutal,
+  .card-brutal *,
+  .card-compact,
+  .card-compact * {
+    color: #000000 !important;
+  }
+
+  /* Form elements in white containers */
+  .bg-white input,
+  .bg-white textarea,
+  .bg-white select,
+  .bg-white label,
+  .bg-white p,
+  .bg-white span,
+  .bg-white div {
+    color: #000000 !important;
+  }
+
+  /* Override any light colored text that might be hard to read */
+  .text-gray-400,
+  .text-gray-500,
+  .text-neutral-400,
+  .text-neutral-500,
+  .text-slate-400,
+  .text-slate-500 {
+    color: #000000 !important;
+  }
+
+  /* Ensure all text in light background containers is black */
+  [class*="bg-gray-50"] *,
+  [class*="bg-neutral-50"] *,
+  [class*="bg-slate-50"] *,
+  [class*="bg-stone-50"] *,
+  [class*="bg-zinc-50"] *,
+  [class*="bg-primary-50"] *,
+  [class*="bg-secondary-50"] *,
+  [class*="bg-success-50"] *,
+  [class*="bg-accent-50"] *,
+  [class*="bg-danger-50"] *,
+  [class*="bg-primary-100"] *,
+  [class*="bg-secondary-100"] *,
+  [class*="bg-success-100"] *,
+  [class*="bg-accent-100"] *,
+  [class*="bg-danger-100"] * {
+    color: #000000 !important;
+  }
+
+  /* Specific override for any remaining light text */
+  .text-neutral-700,
+  .text-gray-700,
+  .text-slate-700 {
+    color: #000000 !important;
+  }
+
+  .input-holo:focus {
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.1) 0%, transparent 50%, rgba(236, 72, 153, 0.1) 100%);
+  }
+
+  /* Glitch Text Effect */
+  .text-glitch {
+    @apply relative font-display font-bold;
+    animation: glitch 2s infinite;
+  }
+
+  .text-glitch::before,
+  .text-glitch::after {
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+
+  .text-glitch::before {
+    animation: glitch-1 0.5s infinite;
+    color: #ff00ff;
+    z-index: -1;
+  }
+
+  .text-glitch::after {
+    animation: glitch-2 0.5s infinite;
+    color: #00ffff;
+    z-index: -2;
+  }
+
+  /* Neon Navigation */
+  .nav-cyber {
+    @apply bg-dark-50/80 backdrop-blur-xl border-b border-primary-500/30;
+    background: linear-gradient(90deg, rgba(15, 15, 35, 0.9) 0%, rgba(26, 26, 46, 0.9) 50%, rgba(22, 33, 62, 0.9) 100%);
+  }
+
+  .nav-link-cyber {
+    @apply relative px-4 py-2 text-dark-600 font-display font-semibold;
+    @apply hover:text-primary-400 transition-all duration-300;
+    @apply before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5;
+    @apply before:bg-gradient-to-r before:from-primary-500 before:to-secondary-500;
+    @apply before:transition-all before:duration-300 hover:before:w-full;
+  }
+
+  .nav-link-cyber.active {
+    @apply text-primary-400;
+  }
+
+  .nav-link-cyber.active::before {
+    @apply w-full;
+  }
+
+  /* Stat Cards with Neon Effects */
+  .stat-neon {
+    @apply card-neon group cursor-pointer;
+    @apply hover:border-accent-400/50;
+  }
+
+  .stat-icon-neon {
+    @apply w-16 h-16 rounded-lg flex items-center justify-center text-3xl;
+    @apply bg-gradient-to-br from-primary-500/20 to-secondary-500/20;
+    @apply border border-primary-400/30 shadow-neon-sm;
+    @apply group-hover:shadow-neon group-hover:scale-110 transition-all duration-300;
+  }
+
+  /* Loading Animations */
+  .loading-cyber {
+    @apply w-8 h-8 border-2 border-primary-500/30 border-t-primary-500 rounded-full;
+    animation: cyber-spin 1s linear infinite;
+  }
+
+  /* Badge Styles */
+  .badge-neon {
+    @apply inline-flex items-center px-3 py-1 text-xs font-display font-bold uppercase;
+    @apply bg-primary-500/20 text-primary-400 border border-primary-500/50;
+    @apply shadow-neon-sm;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+
+  .badge-success-neon {
+    @apply badge-neon bg-accent-500/20 text-accent-400 border-accent-500/50;
+  }
+
+  .badge-danger-neon {
+    @apply badge-neon bg-secondary-500/20 text-secondary-400 border-secondary-500/50;
+  }
+
+  /* Page Background */
+  .page-cyber {
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-cyber::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Typography */
+  .heading-cyber {
+    @apply font-display font-bold text-4xl md:text-6xl;
+    @apply bg-gradient-to-r from-primary-400 via-secondary-400 to-accent-400;
+    @apply bg-clip-text text-transparent;
+    @apply drop-shadow-lg;
+  }
+
+  .text-cyber {
+    @apply text-dark-600 font-body leading-relaxed;
+  }
+
+  /* Theme Toggle */
+  .theme-toggle-cyber {
+    @apply fixed top-6 right-6 z-50 p-3;
+    @apply bg-dark-100/50 backdrop-blur-md border border-primary-500/30;
+    @apply hover:border-primary-400/50 hover:shadow-neon-sm;
+    @apply transition-all duration-300 transform hover:scale-110;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  }
+
+  /* Form Enhancements */
+  .form-cyber {
+    @apply space-y-6;
+  }
+
+  .label-cyber {
+    @apply block text-sm font-display font-semibold text-dark-700 mb-2 uppercase tracking-wider;
+  }
+
+  /* Notification Styles */
+  .notification-cyber {
+    @apply fixed top-4 right-4 max-w-sm p-4 z-50;
+    @apply bg-dark-100/80 backdrop-blur-xl border border-primary-500/50;
+    @apply shadow-cyber transform transition-all duration-300;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+
+  /* Table Styles */
+  .table-cyber {
+    @apply w-full bg-dark-100/30 backdrop-blur-xl border border-primary-500/30;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+
+  .table-header-cyber {
+    @apply bg-primary-500/10 px-6 py-4 text-left text-xs font-display font-bold;
+    @apply text-primary-400 uppercase tracking-wider border-b border-primary-500/30;
+  }
+
+  .table-cell-cyber {
+    @apply px-6 py-4 text-sm text-dark-700 border-b border-primary-500/20;
+  }
+
+  /* Utility Classes */
+  .glass-cyber {
+    @apply bg-dark-100/20 backdrop-blur-xl border border-primary-500/30;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+
+  .border-cyber {
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+}
+
+/* Keyframe Animations */
+@keyframes cyber-glow {
+  0%, 100% { box-shadow: 0 0 5px currentColor, 0 0 20px currentColor; }
+  50% { box-shadow: 0 0 10px currentColor, 0 0 40px currentColor, 0 0 80px currentColor; }
+}
+
+@keyframes cyber-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(2px, 2px); }
+  30% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  70% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  90% { transform: translate(-2px, -2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(2px, 2px); }
+  20% { transform: translate(-2px, -2px); }
+  30% { transform: translate(2px, -2px); }
+  40% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, 2px); }
+  60% { transform: translate(-2px, -2px); }
+  70% { transform: translate(2px, -2px); }
+  80% { transform: translate(-2px, 2px); }
+  90% { transform: translate(2px, 2px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-neon {
+    @apply p-4;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+  }
+  
+  .btn-cyber {
+    @apply px-6 py-3 text-xs;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 10px 100%);
+  }
+}
