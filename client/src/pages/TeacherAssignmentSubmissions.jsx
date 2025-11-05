@@ -272,11 +272,11 @@ const TeacherAssignmentSubmissions = () => {
                             <a href={file.value} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-800">
                               {file.value}
                             </a>
-                          ) : (
-                            <a href={file.path} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-800">
-                              {file.value}
-                            </a>
-                          )}
+                      ) : (
+                        <a href={file.path.startsWith('http') ? file.path : `http://localhost:5000/${file.path}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-800">
+                          {file.value}
+                        </a>
+                      )}
                         </div>
                       ))}
                     </div>

@@ -192,9 +192,9 @@ const StudentAssignmentDetail = () => {
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
-                    <a 
-                      href={`http://localhost:5000/${attachment.path}`} 
-                      target="_blank" 
+                    <a
+                      href={attachment.path.startsWith('http') ? attachment.path : `http://localhost:5000/${attachment.path}`}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-600 hover:text-primary-800"
                     >
@@ -258,7 +258,7 @@ const StudentAssignmentDetail = () => {
                           {file.value}
                         </a>
                       ) : (
-                        <a href={file.path} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-800">
+                        <a href={file.path.startsWith('http') ? file.path : `http://localhost:5000/${file.path}`} target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:text-primary-800">
                           {file.value}
                         </a>
                       )}

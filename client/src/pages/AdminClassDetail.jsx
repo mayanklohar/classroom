@@ -59,7 +59,7 @@ const AdminClassDetail = () => {
   }
 
   return (
-    <div className="min-h-screen page-bg">
+    <div className="min-h-screen page-bg">aq
       {/* Theme Toggle */}
       <ThemeToggle className="theme-toggle" />
       
